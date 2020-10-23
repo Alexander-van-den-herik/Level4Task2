@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MadLevel4Task2</string>
+    <string name="action_settings">Settings</string>
+    <string name="Welcome">Welcome</string>
+    <string name="Instructions">Instructions: select rock, paper or sciccors to play.</string>
+    <string name="statsTitle">Your all time statistics</string>
+    <string name="Vs">V.S.</string>
+    <string name="Computer">Computer</string>
+    <string name="you">You</string>
+    <string name="rock">rock</string>
+    <string name="paper">paper</string>
+    <string name="scissors">scissors</string>
+    <string name="draw">It\'s a draw!</string>
+    <string name="win">You win!</string>
+    <string name="loss">You lose!</string>
+    <string name="title_fragment_history">Your Game History</string>
+    <string name="header_icon_btn">header_icon_btn</string>
+    <string name="allGameStats">Win: %s   Lose: %s  Draw: %s</string>
+
+</resources>

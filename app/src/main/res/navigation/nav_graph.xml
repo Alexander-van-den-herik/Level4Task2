@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/RPSOverviewFragment">
+
+    <fragment
+        android:id="@+id/RPSOverviewFragment"
+        android:name="nl.herika.app.ui.RPSOverviewFragment"
+        android:label="RPS Overview Fragment"
+        tools:layout="@layout/fragment_rps_overview">
+        <action
+            android:id="@+id/action_RPSOverviewFragment_to_GameHistoryFragment"
+            app:destination="@id/GameHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/GameHistoryFragment"
+        android:name="nl.herika.app.ui.GameHistoryFragment"
+        android:label="Game History Fragment"
+        tools:layout="@layout/fragment_game_history">
+        <action
+            android:id="@+id/action_GameHistoryFragment_to_RPSOverviewFragment"
+            app:destination="@id/RPSOverviewFragment" />
+    </fragment>
+</navigation>
