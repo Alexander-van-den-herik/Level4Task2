@@ -55,8 +55,6 @@ class RPSOverviewFragment : Fragment() {
     private fun checkGameResult(view: View) {
         userMove = view.contentDescription.toString()
 
-
-
         checkResult(userMove, generatePcMove())
 
     }
