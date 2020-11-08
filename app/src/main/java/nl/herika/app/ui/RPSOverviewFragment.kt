@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import nl.herika.app.model.Game
 import nl.herika.app.repository.GameRepository
@@ -50,6 +51,8 @@ class RPSOverviewFragment : Fragment() {
         ivScissors.setOnClickListener {
             checkGameResult(ivScissors)
         }
+
+        updateStatistics()
     }
 
     private fun checkGameResult(view: View) {
@@ -137,6 +140,32 @@ class RPSOverviewFragment : Fragment() {
         return ""
     }
 
+    private fun updateStatistics() {
+        mainScope.launch {
+            val games = withContext(Dispatchers.IO) {
+                gameRepository.getAllGames()
+            }
+            var wins: Int = 0
+            var loses: Int = 0
+            var draws: Int  = 0
+
+            for (game in games){
+                when(game.result){
+                    "draw" -> {
+                        draws++
+                    }
+                    "win" -> {
+                        wins++
+                    }
+                    "loss" -> {
+                        loses++
+                    }
+                }
+            }
+            tvStatistics.text = "Win: " + wins + " Lose: " + loses + " Draw: " + draws
+        }
+    }
+
     private fun addGame() {
         val gameDate = Date()
         mainScope.launch {
@@ -152,6 +181,7 @@ class RPSOverviewFragment : Fragment() {
                 gameRepository.insertGame(game)
             }
         }
+        updateStatistics()
     }
 
 }

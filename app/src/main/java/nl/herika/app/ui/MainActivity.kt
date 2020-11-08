@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -73,20 +74,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun deleteAllGames() {
-        mainScope.launch {
-            withContext(Dispatchers.IO) {
-                gameRepository.deleteAllGames()
-            }
-            gameAdapter = GameAdapter(arrayListOf())
-            rvGameHistory.adapter = gameAdapter
-            gameAdapter.notifyDataSetChanged()
-
-            Toast.makeText(
-                baseContext,
-                "Successful deleted all games",
-                Toast.LENGTH_LONG
-            ).show()
-        }
+        //TODO: Delete all games in repository
     }
 
     private fun toggleNavIcon() {
