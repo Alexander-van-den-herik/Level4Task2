@@ -80,7 +80,7 @@ class RPSOverviewFragment : Fragment() {
                         gameResult = "win"
                     }
                 }
-//                addGame()
+                addGame()
             }
             "paper" -> {
                 ivUserChoice.setImageResource(R.drawable.paper)
@@ -98,7 +98,7 @@ class RPSOverviewFragment : Fragment() {
                         gameResult = "loss"
                     }
                 }
-//                addGame()
+                addGame()
             }
             "scissors" -> {
                 ivUserChoice.setImageResource(R.drawable.scissors)
