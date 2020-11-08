@@ -44,6 +44,10 @@ class GameHistoryFragment : Fragment() {
         getGamesFromDatabase()
     }
 
+    private fun getGamesFromDatabase() {
+        TODO("Not yet implemented")
+    }
+
     private fun initViews() {
         rvGameHistory.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
@@ -54,14 +58,4 @@ class GameHistoryFragment : Fragment() {
         )
     }
 
-    private fun getGamesFromDatabase() {
-        CoroutineScope(Dispatchers.Main).launch {
-            val games = withContext(Dispatchers.IO) {
-                gameRepository.getAllGames()
-            }
-            this@GameHistoryFragment.games.clear()
-            this@GameHistoryFragment.games.addAll(games)
-            gameAdapter.notifyDataSetChanged()
-        }
-    }
 }
