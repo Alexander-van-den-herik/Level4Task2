@@ -45,7 +45,17 @@ class GameHistoryFragment : Fragment() {
     }
 
     private fun getGamesFromDatabase() {
-        TODO("Not yet implemented")
+        CoroutineScope(Dispatchers.Main).launch {
+            val games = withContext(Dispatchers.IO) {
+                gameRepository.getAllGames()
+            }
+            //To prevent a games from already being in the array
+            this@GameHistoryFragment.games.clear()
+
+            //To fill games array with data gotten from the repository
+            this@GameHistoryFragment.games.addAll(games)
+            gameAdapter.notifyDataSetChanged()
+        }
     }
 
     private fun initViews() {
