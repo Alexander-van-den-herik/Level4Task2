@@ -17,6 +17,28 @@ class GameAdapter(private val games: List<Game>) : RecyclerView.Adapter<GameAdap
             itemView.tvDate.text = game.date
             itemView.tvGameResults.text = game.result
 
+            when(game.computerChoice) {
+                "rock" -> {
+                    itemView.ivPCMove.setImageResource(R.drawable.rock)
+                }
+                "paper" -> {
+                    itemView.ivPCMove.setImageResource(R.drawable.paper)
+                }
+                "scissors" -> {
+                    itemView.ivPCMove.setImageResource(R.drawable.scissors)
+                }
+            }
+            when(game.userChoice) {
+                "rock" -> {
+                    itemView.ivUserMove.setImageResource(R.drawable.rock)
+                }
+                "paper" -> {
+                    itemView.ivUserMove.setImageResource(R.drawable.paper)
+                }
+                "scissors" -> {
+                    itemView.ivUserMove.setImageResource(R.drawable.scissors)
+                }
+            }
         }
     }
 
