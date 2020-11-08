@@ -116,7 +116,7 @@ class RPSOverviewFragment : Fragment() {
                         gameResult = "draw"
                     }
                 }
-//                addGame()
+                addGame()
             }
         }
     }
@@ -137,6 +137,23 @@ class RPSOverviewFragment : Fragment() {
             }
         }
         return ""
+    }
+
+    private fun addGame() {
+        val gameDate = Date()
+        mainScope.launch {
+            val game = Game(
+                date = gameDate.toString(),
+                computerChoice = computerMove,
+                userChoice = userMove,
+                result = gameResult
+
+            )
+
+            withContext(Dispatchers.IO) {
+                gameRepository.insertGame(game)
+            }
+        }
     }
 
 }
