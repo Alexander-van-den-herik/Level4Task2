@@ -74,7 +74,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun deleteAllGames() {
-        //TODO: Delete all games in repository
+        mainScope.launch {
+            withContext(Dispatchers.IO) {
+                gameRepository.deleteAllGames()
+            }
+            gameAdapter = GameAdapter(arrayListOf())
+            rvGameHistory.adapter = gameAdapter
+            gameAdapter.notifyDataSetChanged()
+
+            Toast.makeText(
+                baseContext,
+                "Successful deleted all games",
+                Toast.LENGTH_LONG
+            ).show()
+        }
     }
 
     private fun toggleNavIcon() {
